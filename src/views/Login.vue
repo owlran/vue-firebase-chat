@@ -52,7 +52,7 @@ export default {
       this.setUser({
         name: this.username,
       });
-      this.$router.push('/home');
+      this.$router.push('/');
     },
   },
 };
