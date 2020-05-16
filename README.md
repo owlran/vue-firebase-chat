@@ -1,4 +1,4 @@
-# vue-tailwind-css-starter
+# vue-firebase-chat
 
 This repo is boilerplate project for Vue.js and Tailwind CSS integration.
 
