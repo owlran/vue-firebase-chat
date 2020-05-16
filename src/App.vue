@@ -1,5 +1,5 @@
 <template lang="pug">
-  #app
+  #app(class="w-full h-screen max-h-full bg-gray-200")
     Navbar
     router-view
 </template>
