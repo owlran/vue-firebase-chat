@@ -19,9 +19,9 @@ const routes = [
     beforeEnter: AuthGuard,
   },
   {
-    path: '/chats',
-    name: 'Chats',
-    component: () => import(/* webpackChunkName: "chats" */ '../views/Chats.vue'),
+    path: '/chatroom',
+    name: 'Chatroom',
+    component: () => import(/* webpackChunkName: "chatroom" */ '../views/Chatroom.vue'),
     beforeEnter: AuthGuard,
   },
   {
