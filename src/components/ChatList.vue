@@ -1,15 +1,21 @@
 <template lang='pug'>
-  .chatList(class="")
+  .chatList(class=" overflow-y-auto" refs="chatList")
     h3 chats
-    div(class="message border border-gray-500 p-5 mb-2" v-for="chat in chats")
-      p {{ chat.username }}
-      p {{ chat.text }}
-      p {{ chat.timestamp }}
-
+    .chatList__containter(
+      ref="listContainer"
+      id="container"
+      class="flex flex-col border border-red-500")
+      div(class="flex flex-col message p-5 mb-2" v-for="{ username, text, timestamp } in chats")
+        chat(
+          :username="username"
+          :text="text"
+          :timestamp="timestamp"
+          )
 </template>
 
 <script>
 import firebase from '@/plugins/firebase';
+import chat from '@/components/Chat.vue';
 
 export default {
   data() {
@@ -18,7 +24,17 @@ export default {
       ref: firebase.database().ref('messages'),
     };
   },
-  mounted() {
+  components: {
+    chat,
+  },
+  methods: {
+    scrollToEnd() {
+      this.$nextTick(() => {
+        this.$refs.listContainer.scrollTop = this.$refs.listContainer.scrollHeight;
+      });
+    },
+  },
+  created() {
     this.ref.on('value', (snapshot) => {
       const chatsData = snapshot.val();
       const chatsDataList = Object.entries(chatsData);
@@ -29,9 +45,18 @@ export default {
       }));
     });
   },
+  mounted() {
+    this.scrollToEnd();
+  },
+  updated() {
+    this.scrollToEnd();
+  },
 };
 </script>
 
-<style>
+<style lang="scss">
+.chatList {
+  height: 80vh;
+}
 
 </style>

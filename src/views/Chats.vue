@@ -1,5 +1,6 @@
 <template lang="pug">
   .chats
+    ChatList
     div(class="mb-4")
       label(class="block text-gray-700 text-sm font-bold mb-2" for="chat") chat
       input(
@@ -10,8 +11,6 @@
         type="text"
         placeholder="chat")
       button(class="border border-gray-600 p-2" @click="sendMessage") send
-    div(class="messages")
-      ChatList
 </template>
 
 <script>
