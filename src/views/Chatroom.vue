@@ -1,7 +1,7 @@
 <template lang="pug">
   .chats
     ChatList(:chats="getChats")
-    Typer
+    Typer(@sendMessage="sendMessage")
 </template>
 
 <script>
@@ -14,7 +14,6 @@ export default {
   data() {
     return {
       messages: null,
-      chat: '',
     };
   },
   components: {
@@ -31,9 +30,8 @@ export default {
       sendMessageToFirebase: 'chat/sendMessage',
       loadUserChats: 'chat/loadUserChats',
     }),
-    sendMessage() {
-      this.sendMessageToFirebase(this.chat);
-      this.chat = '';
+    sendMessage(chat) {
+      this.sendMessageToFirebase(chat);
     },
   },
   created() {
