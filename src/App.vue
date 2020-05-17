@@ -2,7 +2,7 @@
   #app(class="w-full h-screen max-h-full bg-gray-200")
     Navbar(
       v-if="getUser"
-      class="fixed border border-red-500 h-12 flex flex-row w-full justify-start")
+      class="fixed h-12 flex flex-row w-full justify-start")
     router-view(class="pt-12")
 </template>
 
