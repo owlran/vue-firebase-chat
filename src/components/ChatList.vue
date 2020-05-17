@@ -40,7 +40,7 @@ export default {
 
 <style lang="scss">
 .chatList {
-  height: 80vh;
+  height: calc(100vh - 8rem);
 }
 
 </style>

@@ -1,5 +1,5 @@
 <template lang="pug">
-  .chats
+  .chatroom(class="relative")
     ChatList(:chats="getChats")
     Typer(@sendMessage="sendMessage")
 </template>

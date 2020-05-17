@@ -1,5 +1,5 @@
 <template lang='pug'>
-  .typer(class="flex flex-row justify-around items-center mb-4")
+  .typer(class="flex flex-row justify-around items-center h-20 relative bottom-0")
     .typer__functions(class="w-2/12 flex flex-row justify-around")
       font-awesome-icon(class="cursor-not-allowed" :icon="['far', 'image']" size="lg")
       font-awesome-icon(class="cursor-pointer" :icon="['far', 'laugh']" size="lg")
