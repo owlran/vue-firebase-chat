@@ -1,16 +1,11 @@
 <template lang='pug'>
-  .chatList(class=" overflow-y-auto" refs="chatList")
-    h3 chats
-    .chatList__containter(
-      ref="listContainer"
-      id="container"
-      class="flex flex-col border border-red-500")
-      div(class="flex flex-col message p-5 mb-2" v-for="{ username, text, timestamp } in chats")
-        chat(
-          :username="username"
-          :text="text"
-          :timestamp="timestamp"
-          )
+  .chatList(class="flex flex-col border border-red-500 overflow-y-auto" refs="chatList")
+    div(class="flex flex-col message p-5 mb-2" v-for="{ username, text, timestamp } in chats")
+      chat(
+        :username="username"
+        :text="text"
+        :timestamp="timestamp"
+        )
 </template>
 
 <script>
@@ -29,9 +24,7 @@ export default {
   },
   methods: {
     scrollToEnd() {
-      this.$nextTick(() => {
-        this.$refs.listContainer.scrollTop = this.$refs.listContainer.scrollHeight;
-      });
+      this.$el.scrollTop = this.$el.lastElementChild.offsetTop;
     },
   },
   created() {
