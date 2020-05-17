@@ -1,3 +1,5 @@
+const randomMC = require('random-material-color');
+
 const userMap = {};
 
 export function getRandomColor() {
@@ -10,7 +12,7 @@ export function getRandomColor() {
 }
 export function getRandomColorByUsername(name) {
   if (!userMap[name]) {
-    userMap[name] = getRandomColor();
+    userMap[name] = randomMC.getColor();
   }
   return userMap[name];
 }
