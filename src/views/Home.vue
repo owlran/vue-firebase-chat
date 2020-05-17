@@ -1,11 +1,15 @@
 <template lang="pug">
   .home
-    h1 hi, it's home page
+    WIP
 </template>
 
 <script>
-export default {
+import WIP from '@/components/WIP.vue';
 
+export default {
+  components: {
+    WIP,
+  },
 };
 </script>
 
