@@ -1,9 +1,11 @@
 <template lang="pug">
   .chat(class="flex flex-col w-full")
     p.chat__username(
+      :style="styleObject"
       class="mb-2"
       :class="usernameClassObject") {{ username }}
     .chat__message(
+      :style="styleObject"
       class="w-1/2"
       :class="chatClassObject")
       p {{ text }}
@@ -11,9 +13,15 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import { getRandomColorByUsername } from '@/utils/index';
 
 export default {
   props: ['username', 'text', 'timestamp'],
+  data() {
+    return {
+      color: null,
+    };
+  },
   computed: {
     ...mapGetters({
       getUser: 'getUser',
@@ -33,6 +41,19 @@ export default {
         'chat__message--own': this.isOwnChat,
       };
     },
+    styleObject() {
+      return {
+        color: !this.isOwnChat
+          ? this.color
+          : '',
+        borderColor: !this.isOwnChat
+          ? this.color
+          : '',
+      };
+    },
+  },
+  mounted() {
+    this.color = getRandomColorByUsername(this.username);
   },
 };
 
