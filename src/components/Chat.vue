@@ -63,7 +63,7 @@ export default {
 .chat {
   &__username {
     &--own {
-      @apply self-end;
+      @apply self-end text-blue-800;
     }
   }
   &__message {
