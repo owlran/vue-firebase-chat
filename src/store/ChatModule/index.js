@@ -28,7 +28,6 @@ const ChatModule = {
       let chats = [];
       state.ref.on('value', (snapshot) => {
         const chatsData = snapshot.val();
-        console.log('chatsData', chatsData);
         const chatsDataList = Object.entries(chatsData);
         chats = chatsDataList && chatsDataList.map(([key, data], index) => ({
           id: index,
