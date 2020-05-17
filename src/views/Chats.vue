@@ -1,6 +1,6 @@
 <template lang="pug">
   .chats
-    ChatList
+    ChatList(:chats="getChats")
     div(class="mb-4")
       label(class="block text-gray-700 text-sm font-bold mb-2" for="chat") chat
       input(
@@ -16,8 +16,7 @@
 <script>
 // @ is an alias to /src
 import ChatList from '@/components/ChatList.vue';
-import { mapGetters } from 'vuex';
-import firebase from '@/plugins/firebase';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
   name: 'Home',
@@ -32,24 +31,21 @@ export default {
   },
   computed: {
     ...mapGetters({
-      getUser: 'getUser',
+      getChats: 'chat/getChats',
     }),
   },
   methods: {
+    ...mapActions({
+      sendMessageToFirebase: 'chat/sendMessage',
+      loadUserChats: 'chat/loadUserChats',
+    }),
     sendMessage() {
-      console.log('in method send message');
-      const { name } = this.getUser;
-      if (this.chat) {
-        const message = {
-          username: name,
-          text: this.chat,
-          timestamp: Date.now(),
-        };
-        // Push message to firebase reference
-        firebase.database().ref('messages').push(message);
-        this.chat = '';
-      }
+      this.sendMessageToFirebase(this.chat);
+      this.chat = '';
     },
+  },
+  created() {
+    this.loadUserChats();
   },
   mounted() {
   },

@@ -13,9 +13,9 @@ import firebase from '@/plugins/firebase';
 import chat from '@/components/Chat.vue';
 
 export default {
+  props: ['chats'],
   data() {
     return {
-      chats: [],
       ref: firebase.database().ref('messages'),
     };
   },
@@ -24,19 +24,10 @@ export default {
   },
   methods: {
     scrollToEnd() {
-      this.$el.scrollTop = this.$el.lastElementChild.offsetTop;
+      if (this.$el && this.$el.lastElementChild) {
+        this.$el.scrollTop = this.$el.lastElementChild.offsetTop;
+      }
     },
-  },
-  created() {
-    this.ref.on('value', (snapshot) => {
-      const chatsData = snapshot.val();
-      const chatsDataList = Object.entries(chatsData);
-      this.chats = chatsDataList && chatsDataList.map(([key, data], index) => ({
-        id: index,
-        key,
-        ...data,
-      }));
-    });
   },
   mounted() {
     this.scrollToEnd();
