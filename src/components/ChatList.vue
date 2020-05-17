@@ -1,5 +1,6 @@
 <template lang='pug'>
-  .chatList(class="flex flex-col overflow-y-auto")
+  .chatList(class="flex flex-col overflow-y-auto relative")
+    StitckyTextComponent(:stitckyText="stitckyText")
     div(class="flex flex-col message p-5 mb-2" v-for="{ username, message, type, timestamp } in chats")
       chat(
         :username="username"
@@ -12,9 +13,10 @@
 <script>
 import firebase from '@/plugins/firebase';
 import chat from '@/components/Chat.vue';
+import StitckyTextComponent from '@/components/StitckyText.vue';
 
 export default {
-  props: ['chats'],
+  props: ['chats', 'stitckyText'],
   data() {
     return {
       ref: firebase.database().ref('messages'),
@@ -22,6 +24,7 @@ export default {
   },
   components: {
     chat,
+    StitckyTextComponent,
   },
   methods: {
     scrollToEnd() {

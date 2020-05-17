@@ -64,7 +64,16 @@ export default {
 <style lang='scss'>
 .typer {
   bottom: -235px;
+  min-width: 320px;
+  @media (min-width: 481px) and (max-width: 767px) {
+    bottom: -150px;
+  }
+
+  @media (min-width: 320px) and (max-width: 480px) {
+    bottom: -110px;
+  }
   transition: all .3s ease;
+
 
   &--active {
     bottom: 0;

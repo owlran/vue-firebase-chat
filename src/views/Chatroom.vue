@@ -1,6 +1,9 @@
 <template lang="pug">
   .chatroom(class="relative")
-    ChatList(:chats="getChats")
+    ChatList(
+      :chats="getChats"
+      :stitckyText="stitckyText"
+    )
     Typer(@sendMessage="sendMessage")
 </template>
 
@@ -14,6 +17,7 @@ export default {
   data() {
     return {
       messages: null,
+      stitckyText: '最近淘寶辦 1111 慶祝，有推薦的店家嘛 ?',
     };
   },
   components: {
