@@ -12,16 +12,16 @@ const ChatModule = {
     },
   },
   actions: {
-    sendMessage({ state, rootGetters }, text) {
+    sendMessage({ state, rootGetters }, messageObj) {
+      const { message, type } = messageObj;
       const { name } = rootGetters.getUser;
-      if (text) {
-        const message = {
+      if (message) {
+        state.ref.push({
           username: name,
-          text,
+          message,
+          type,
           timestamp: Date.now(),
-        };
-
-        state.ref.push(message);
+        });
       }
     },
     loadUserChats({ state, commit }) {

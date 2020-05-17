@@ -1,9 +1,10 @@
 <template lang='pug'>
   .chatList(class="flex flex-col overflow-y-auto")
-    div(class="flex flex-col message p-5 mb-2" v-for="{ username, text, timestamp } in chats")
+    div(class="flex flex-col message p-5 mb-2" v-for="{ username, message, type, timestamp } in chats")
       chat(
         :username="username"
-        :text="text"
+        :message="message"
+        :type="type"
         :timestamp="timestamp"
         )
 </template>

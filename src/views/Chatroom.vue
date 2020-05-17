@@ -30,8 +30,8 @@ export default {
       sendMessageToFirebase: 'chat/sendMessage',
       loadUserChats: 'chat/loadUserChats',
     }),
-    sendMessage(chat) {
-      this.sendMessageToFirebase(chat);
+    sendMessage(messageObj) {
+      this.sendMessageToFirebase(messageObj);
     },
   },
   created() {

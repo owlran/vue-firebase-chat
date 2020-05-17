@@ -44,11 +44,17 @@ export default {
   },
   methods: {
     addStitcker(imgSrc) {
-      this.$emit('addStitcker', imgSrc);
+      this.$emit('sendMessage', {
+        message: imgSrc,
+        type: 'image',
+      });
       this.isImagePickerActived = false;
     },
     sendMessage() {
-      this.$emit('sendMessage', this.chat);
+      this.$emit('sendMessage', {
+        message: this.chat,
+        type: 'text',
+      });
       this.chat = '';
     },
   },
