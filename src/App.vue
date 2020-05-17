@@ -1,5 +1,5 @@
 <template lang="pug">
-  #app(class="w-full h-screen max-h-full bg-gray-200")
+  #app(class="w-full h-screen max-h-full bg-white")
     Navbar(
       v-if="getUser"
       class="fixed h-12 flex flex-row w-full justify-start")
