@@ -1,5 +1,5 @@
 <template lang='pug'>
-  .chatList(class="flex flex-col border border-red-500 overflow-y-auto" refs="chatList")
+  .chatList(class="flex flex-col overflow-y-auto")
     div(class="flex flex-col message p-5 mb-2" v-for="{ username, text, timestamp } in chats")
       chat(
         :username="username"
