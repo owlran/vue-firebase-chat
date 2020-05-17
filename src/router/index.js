@@ -13,9 +13,15 @@ const routes = [
     beforeEnter: AuthGuard,
   },
   {
-    path: '/about',
-    name: 'About',
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
+    path: '/topics',
+    name: 'Topics',
+    component: () => import(/* webpackChunkName: "topics" */ '../views/Topics.vue'),
+    beforeEnter: AuthGuard,
+  },
+  {
+    path: '/chats',
+    name: 'Chats',
+    component: () => import(/* webpackChunkName: "chats" */ '../views/Chats.vue'),
     beforeEnter: AuthGuard,
   },
   {

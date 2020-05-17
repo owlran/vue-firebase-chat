@@ -1,5 +1,5 @@
 <template lang='pug'>
-  .chatList
+  .chatList(class="")
     h3 chats
     div(class="message border border-gray-500 p-5 mb-2" v-for="chat in chats")
       p {{ chat.username }}
