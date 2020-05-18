@@ -63,6 +63,7 @@ export default {
 
 <style lang='scss'>
 .typer {
+  z-index: 3;
   bottom: -235px;
   min-width: 320px;
   @media (min-width: 481px) and (max-width: 767px) {
