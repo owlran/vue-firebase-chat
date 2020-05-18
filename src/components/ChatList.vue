@@ -1,7 +1,7 @@
 <template lang='pug'>
   .chatList(class="flex flex-col overflow-y-auto relative")
     StitckyTextComponent(:stitckyText="stitckyText")
-    div(class="flex flex-col message p-5 mb-2" v-for="{ username, message, type, timestamp } in chats")
+    div(class="flex flex-col flex-shrink-0 message p-5 mb-2" v-for="{ username, message, type, timestamp } in chats")
       chat(
         :username="username"
         :message="message"
