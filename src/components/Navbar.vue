@@ -26,6 +26,7 @@ export default {
 
 <style lang="scss">
 .nav {
+  z-index: 2;
   &__button {
     @apply text-black p-3 h-full;
     &--user {

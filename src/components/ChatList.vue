@@ -44,6 +44,7 @@ export default {
 
 <style lang="scss">
 .chatList {
+  z-index: 1;
   height: calc(100vh - 8rem);
 }
 
