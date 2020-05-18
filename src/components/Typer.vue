@@ -1,6 +1,5 @@
 <template lang='pug'>
   .typer(
-    :class="typeClassObj"
     class="fixed bottom-0 flex flex-col w-full bg-white")
     .typer-wrapper(class="flex flex-row justify-around items-center h-20")
       .typer__functions(class="w-2/12 flex flex-row justify-around text-blue-900")
@@ -19,7 +18,9 @@
           class="cursor-pointer"
           @click="sendMessage"
           :icon="['fas', 'arrow-right']" size="lg")
-    ImagePicker(@addStitcker="addStitcker")
+    ImagePicker(
+      v-if="isImagePickerActived"
+      @addStitcker="addStitcker")
 </template>
 
 <script>
@@ -31,13 +32,6 @@ export default {
       chat: '',
       isImagePickerActived: false,
     };
-  },
-  computed: {
-    typeClassObj() {
-      return {
-        'typer--active': this.isImagePickerActived,
-      };
-    },
   },
   components: {
     ImagePicker,
@@ -64,20 +58,5 @@ export default {
 <style lang='scss'>
 .typer {
   z-index: 3;
-  bottom: -235px;
-  min-width: 320px;
-  @media (min-width: 481px) and (max-width: 767px) {
-    bottom: -150px;
-  }
-
-  @media (min-width: 320px) and (max-width: 480px) {
-    bottom: -110px;
-  }
-  transition: all .3s ease;
-
-
-  &--active {
-    bottom: 0;
-  }
 }
 </style>

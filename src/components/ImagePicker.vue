@@ -1,4 +1,5 @@
 <template lang="pug">
+transition(name="slide")
   .imagePicker(class="grid grid-cols-3 gap-4 bg-white")
     .imagePicker__grid(
       v-for="(img, index) in imgSrc" :key="index"
@@ -35,4 +36,19 @@ export default {
     @apply w-full h-full object-cover cursor-pointer;
   }
 }
+
+.slide-enter-active,
+.slide-leave-active
+ {
+  max-height: 500px;
+  transition: all 0.8s;
+  overflow: hidden;
+
+}
+
+.slide-enter, .slide-leave-to {
+   overflow: hidden;
+   max-height: 0;
+}
+
 </style>
