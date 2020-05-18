@@ -32,7 +32,7 @@ export default {
 <style lang="scss">
 .imagePicker {
   &__grid {
-    @apply flex flex-row justify-center cursor-pointer;
+    @apply w-full h-full object-cover cursor-pointer;
   }
 }
 </style>
